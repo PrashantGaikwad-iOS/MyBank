@@ -8,59 +8,65 @@
 import Foundation
 import UIKit
 
+import Foundation
+import UIKit
+
 class LoginView: UIView {
     
     let stackView = UIStackView()
-    let usernameTF = UITextField()
-    let passwordTF = UITextField()
+    let usernameTextField = UITextField()
+    let passwordTextField = UITextField()
     let dividerView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         style()
         layout()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("required init not implemented")
+        fatalError("init(coder:) has not been implemented")
     }
     
-    //    override var intrinsicContentSize: CGSize {
-    //        return CGSize(width: 200, height: 200)
-    //    }
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: UIView.noIntrinsicMetric, height: UIView.noIntrinsicMetric)
+    }
 }
 
 extension LoginView {
-    func style() {
+    
+    private func style() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .secondarySystemBackground
-        
-        usernameTF.translatesAutoresizingMaskIntoConstraints = false
-        usernameTF.placeholder = "Username"
-        usernameTF.delegate = self
-        
-        passwordTF.translatesAutoresizingMaskIntoConstraints = false
-        passwordTF.placeholder = "Password"
-        passwordTF.delegate = self
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 8
         
+        usernameTextField.translatesAutoresizingMaskIntoConstraints = false
+        usernameTextField.placeholder = "Username"
+        usernameTextField.delegate = self
+
         dividerView.translatesAutoresizingMaskIntoConstraints = false
         dividerView.backgroundColor = .secondarySystemFill
-        
-        layer.cornerRadius = 5.0
+
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.placeholder = "Password"
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.delegate = self
+                
+        layer.cornerRadius = 5
         clipsToBounds = true
     }
     
-    func layout() {
-        addSubview(stackView)
-        stackView.addArrangedSubview(usernameTF)
+    private func layout() {
+        stackView.addArrangedSubview(usernameTextField)
         stackView.addArrangedSubview(dividerView)
-        stackView.addArrangedSubview(passwordTF)
+        stackView.addArrangedSubview(passwordTextField)
+
+        addSubview(stackView)
         
+        // StackView
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1),
             stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
@@ -74,16 +80,17 @@ extension LoginView {
 
 // MARK: - UITextFieldDelegate
 extension LoginView: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        usernameTF.endEditing(true)
-        passwordTF.endEditing(true)
+        usernameTextField.endEditing(true)
+        passwordTextField.endEditing(true)
         return true
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
     }
 }
