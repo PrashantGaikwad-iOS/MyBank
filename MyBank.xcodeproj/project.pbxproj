@@ -17,6 +17,8 @@
 		0D27EF7D27A070A500A142AB /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D27EF7C27A070A500A142AB /* DummyViewController.swift */; };
 		0D27EF7F27A070F100A142AB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D27EF7E27A070F100A142AB /* GradientView.swift */; };
 		0D27EF8227A071C400A142AB /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D27EF8127A071C400A142AB /* LocalState.swift */; };
+		0D27EF8427A1013B00A142AB /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D27EF8327A1013B00A142AB /* UIViewController+Utils.swift */; };
+		0D27EF8627A101D500A142AB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D27EF8527A101D500A142AB /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		0D27EF7C27A070A500A142AB /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 		0D27EF7E27A070F100A142AB /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		0D27EF8127A071C400A142AB /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
+		0D27EF8327A1013B00A142AB /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
+		0D27EF8527A101D500A142AB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,23 +68,24 @@
 		0D27EF5E279FAE4000A142AB /* MyBank */ = {
 			isa = PBXGroup;
 			children = (
-				0D27EF8027A071AD00A142AB /* Util */,
-				0D27EF7727A04C4A00A142AB /* Onboarding */,
-				0D27EF73279FFE1800A142AB /* File */,
-				0D27EF74279FFE2B00A142AB /* Login */,
 				0D27EF5F279FAE4000A142AB /* AppDelegate.swift */,
+				0D27EF8527A101D500A142AB /* MainViewController.swift */,
+				0D27EF74279FFE2B00A142AB /* Login */,
+				0D27EF7727A04C4A00A142AB /* Onboarding */,
+				0D27EF8027A071AD00A142AB /* Util */,
+				0D27EF73279FFE1800A142AB /* Files */,
 			);
 			path = MyBank;
 			sourceTree = "<group>";
 		};
-		0D27EF73279FFE1800A142AB /* File */ = {
+		0D27EF73279FFE1800A142AB /* Files */ = {
 			isa = PBXGroup;
 			children = (
 				0D27EF68279FAE4200A142AB /* Assets.xcassets */,
 				0D27EF6A279FAE4200A142AB /* LaunchScreen.storyboard */,
 				0D27EF6D279FAE4200A142AB /* Info.plist */,
 			);
-			name = File;
+			name = Files;
 			sourceTree = "<group>";
 		};
 		0D27EF74279FFE2B00A142AB /* Login */ = {
@@ -107,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				0D27EF8127A071C400A142AB /* LocalState.swift */,
+				0D27EF8327A1013B00A142AB /* UIViewController+Utils.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -187,8 +193,10 @@
 				0D27EF7B27A053F400A142AB /* OnboardingViewController.swift in Sources */,
 				0D27EF7F27A070F100A142AB /* GradientView.swift in Sources */,
 				0D27EF60279FAE4000A142AB /* AppDelegate.swift in Sources */,
+				0D27EF8427A1013B00A142AB /* UIViewController+Utils.swift in Sources */,
 				0D27EF7927A04FCF00A142AB /* OnboardingContainerViewController.swift in Sources */,
 				0D27EF8227A071C400A142AB /* LocalState.swift in Sources */,
+				0D27EF8627A101D500A142AB /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
