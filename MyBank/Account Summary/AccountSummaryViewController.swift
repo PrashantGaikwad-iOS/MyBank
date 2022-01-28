@@ -15,6 +15,8 @@ class AccountSummaryViewController: UIViewController {
     var headerView = AccountSummaryHeaderView(frame: .zero)
     let refreshControl = UIRefreshControl()
     
+    var isLoaded = false
+    
     // View Models
     var headerViewModel = AccountSummaryHeaderView.ViewModel(welcomeMessage: "Welcome", name: "", date: Date())
     var accountCellViewModels: [AccountSummaryCell.ViewModel] = []
@@ -37,9 +39,16 @@ extension AccountSummaryViewController {
         setupNavigationBar()
         setupTableView()
         setupTableHeaderView()
-        //fetchAccounts()
         setupRefreshControl()
+        setupSkeletons() //
         fetchData()
+    }
+    
+    private func setupSkeletons() {
+        let row = Account.makeSkeleton()
+        accounts = Array(repeating: row, count: 10)
+        
+        configureTableCells(with: accounts)
     }
     
     func setupNavigationBar() {
@@ -53,6 +62,8 @@ extension AccountSummaryViewController {
         tableView.dataSource = self
         
         tableView.register(AccountSummaryCell.self, forCellReuseIdentifier: AccountSummaryCell.reuseID)
+        tableView.register(SkeletonCell.self, forCellReuseIdentifier: SkeletonCell.reuseID)
+
         tableView.rowHeight = AccountSummaryCell.rowHeight
         tableView.tableFooterView = UIView()
         
@@ -85,11 +96,15 @@ extension AccountSummaryViewController {
 extension AccountSummaryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard !accountCellViewModels.isEmpty else { return UITableViewCell() }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.reuseID, for: indexPath) as! AccountSummaryCell
         let account = accountCellViewModels[indexPath.row]
-        cell.configure(with: account)
         
+        if isLoaded {
+            let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.reuseID, for: indexPath) as! AccountSummaryCell
+            cell.configure(with: account)
+            return cell
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: SkeletonCell.reuseID, for: indexPath) as! SkeletonCell
         return cell
     }
     
@@ -139,6 +154,19 @@ extension AccountSummaryViewController {
     @objc func logoutTapped(sender: UIButton) {
         NotificationCenter.default.post(name: .logout, object: nil)
     }
+    
+    @objc func refreshContent() {
+        reset()
+        setupSkeletons()
+        tableView.reloadData()
+        fetchData()
+    }
+    
+    private func reset() {
+        profile = nil
+        accounts = []
+        isLoaded = false
+    }
 }
 
 // MARK: - Networking
@@ -154,28 +182,32 @@ extension AccountSummaryViewController {
             switch result {
             case .success(let profile):
                 self.profile = profile
-                self.configureTableHeaderView(with: profile)
             case .failure(let error):
                 print(error.localizedDescription)
             }
             group.leave()
         }
-        
+
         group.enter()
         fetchAccounts(forUserId: userId) { result in
             switch result {
             case .success(let accounts):
                 self.accounts = accounts
-                self.configureTableCells(with: accounts)
             case .failure(let error):
                 print(error.localizedDescription)
             }
             group.leave()
         }
-        
+            
         group.notify(queue: .main) {
-            self.tableView.reloadData()
             self.tableView.refreshControl?.endRefreshing()
+            
+            guard let profile = self.profile else { return }
+            
+            self.isLoaded = true
+            self.configureTableHeaderView(with: profile) //
+            self.configureTableCells(with: self.accounts) //
+            self.tableView.reloadData()
         }
     }
     
@@ -192,12 +224,5 @@ extension AccountSummaryViewController {
                                          accountName: $0.name,
                                          balance: $0.amount)
         }
-    }
-}
-
-// MARK: Actions
-extension AccountSummaryViewController {
-    @objc func refreshContent() {
-            fetchData()
     }
 }
