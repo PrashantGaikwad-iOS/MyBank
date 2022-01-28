@@ -31,6 +31,8 @@
 		0DB846D127A3D702003C12EF /* ShakeyBellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB846D027A3D702003C12EF /* ShakeyBellView.swift */; };
 		0DB846D327A43478003C12EF /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB846D227A43478003C12EF /* Date+Utils.swift */; };
 		0DB846D527A434B8003C12EF /* AccountSummaryViewController+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB846D427A434B8003C12EF /* AccountSummaryViewController+Networking.swift */; };
+		0DB846D927A43907003C12EF /* ProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB846D827A43907003C12EF /* ProfileTests.swift */; };
+		0DB846DB27A43951003C12EF /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB846DA27A43951003C12EF /* AccountTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		0DB846D027A3D702003C12EF /* ShakeyBellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeyBellView.swift; sourceTree = "<group>"; };
 		0DB846D227A43478003C12EF /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		0DB846D427A434B8003C12EF /* AccountSummaryViewController+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountSummaryViewController+Networking.swift"; sourceTree = "<group>"; };
+		0DB846D827A43907003C12EF /* ProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTests.swift; sourceTree = "<group>"; };
+		0DB846DA27A43951003C12EF /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +203,8 @@
 		0D27EF9B27A2CC8600A142AB /* MyBankUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				0D27EFA327A2CC9B00A142AB /* CurrencyFormatterTests.swift */,
+				0DB846D727A438F0003C12EF /* AccountSummary */,
+				0DB846D627A438E6003C12EF /* Utils */,
 			);
 			path = MyBankUnitTests;
 			sourceTree = "<group>";
@@ -210,6 +215,23 @@
 				0DB846D027A3D702003C12EF /* ShakeyBellView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		0DB846D627A438E6003C12EF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0D27EFA327A2CC9B00A142AB /* CurrencyFormatterTests.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		0DB846D727A438F0003C12EF /* AccountSummary */ = {
+			isa = PBXGroup;
+			children = (
+				0DB846D827A43907003C12EF /* ProfileTests.swift */,
+				0DB846DA27A43951003C12EF /* AccountTests.swift */,
+			);
+			path = AccountSummary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +364,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D27EFA427A2CC9B00A142AB /* CurrencyFormatterTests.swift in Sources */,
+				0DB846DB27A43951003C12EF /* AccountTests.swift in Sources */,
+				0DB846D927A43907003C12EF /* ProfileTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
