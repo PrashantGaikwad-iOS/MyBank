@@ -28,6 +28,7 @@
 		0D27EFA427A2CC9B00A142AB /* CurrencyFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D27EFA327A2CC9B00A142AB /* CurrencyFormatterTests.swift */; };
 		0DB846CC27A3C734003C12EF /* NSNotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB846CB27A3C734003C12EF /* NSNotificationName.swift */; };
 		0DB846CE27A3C829003C12EF /* UITextField+SecureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB846CD27A3C829003C12EF /* UITextField+SecureToggle.swift */; };
+		0DB846D127A3D702003C12EF /* ShakeyBellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB846D027A3D702003C12EF /* ShakeyBellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		0D27EFA327A2CC9B00A142AB /* CurrencyFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatterTests.swift; sourceTree = "<group>"; };
 		0DB846CB27A3C734003C12EF /* NSNotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotificationName.swift; sourceTree = "<group>"; };
 		0DB846CD27A3C829003C12EF /* UITextField+SecureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+SecureToggle.swift"; sourceTree = "<group>"; };
+		0DB846D027A3D702003C12EF /* ShakeyBellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeyBellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		0D27EF5E279FAE4000A142AB /* MyBank */ = {
 			isa = PBXGroup;
 			children = (
+				0DB846CF27A3D6EB003C12EF /* Components */,
 				0D27EF5F279FAE4000A142AB /* AppDelegate.swift */,
 				0D27EF8527A101D500A142AB /* MainViewController.swift */,
 				0D27EF74279FFE2B00A142AB /* Login */,
@@ -193,6 +196,14 @@
 				0D27EFA327A2CC9B00A142AB /* CurrencyFormatterTests.swift */,
 			);
 			path = MyBankUnitTests;
+			sourceTree = "<group>";
+		};
+		0DB846CF27A3D6EB003C12EF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0DB846D027A3D702003C12EF /* ShakeyBellView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +310,7 @@
 			files = (
 				0D27EF8B27A1982C00A142AB /* AccountSummaryHeaderView.swift in Sources */,
 				0D27EF9327A2870000A142AB /* Decimal+Utils.swift in Sources */,
+				0DB846D127A3D702003C12EF /* ShakeyBellView.swift in Sources */,
 				0D27EF9127A278D900A142AB /* AccountSummaryCell.swift in Sources */,
 				0D27EF76279FFE8300A142AB /* LoginView.swift in Sources */,
 				0D27EF9527A2873000A142AB /* CurrencyFormatter.swift in Sources */,
